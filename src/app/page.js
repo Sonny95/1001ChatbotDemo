@@ -84,7 +84,7 @@ export default function Home() {
             </button>
           </div>
           <div className="h-64 overflow-y-auto border rounded mb-2 p-2 text-sm text-gray-700">
-            👋 Hi! How can I help you today?
+            need to add on
           </div>
           <input
             type="text"
