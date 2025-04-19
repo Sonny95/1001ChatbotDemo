@@ -9,6 +9,7 @@ import { SlMagnifier } from "react-icons/sl";
 import { SlHandbag } from "react-icons/sl";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { SiLivechat } from "react-icons/si";
+import Chatbox from "./component/Chatbox";
 
 export default function Home() {
   const [showChat, setShowChat] = useState(false);
@@ -61,11 +62,12 @@ export default function Home() {
       <div className="mt-20">
         <div className="text-3xl text-[#888888]">BEST SELLERS</div>
       </div>
+
       {/* Floating Button */}
       <div className="fixed bottom-8 right-8 z-50">
         <button
           className="w-20 h-12 bg-[#007A8A] cursor-pointer rounded-2xl flex items-center justify-center"
-          onClick={() => setShowChat(true)}
+          onClick={() => setShowChat((prev) => !prev)}
         >
           <SiLivechat className="text-white w-8 h-auto" />
         </button>
@@ -73,24 +75,8 @@ export default function Home() {
 
       {/* Chatbot Box(after clicked the button) */}
       {showChat && (
-        <div className="fixed bottom-24 right-8 w-80 h-96 bg-white border border-gray-300 shadow-xl rounded-lg p-4 z-50 flex flex-col">
-          <div className="flex justify-between items-center mb-2">
-            <div className="text-sm font-bold">Chat with us!</div>
-            <button
-              onClick={() => setShowChat(false)}
-              className="text-gray-500 hover:text-gray-700 text-xs"
-            >
-              ✕
-            </button>
-          </div>
-          <div className="h-64 overflow-y-auto border rounded mb-2 p-2 text-sm text-gray-700">
-            need to add on
-          </div>
-          <input
-            type="text"
-            className="w-full border p-2 rounded text-sm"
-            placeholder="Type a message..."
-          />
+        <div className="fixed bottom-24 right-8 w-80 h-auto bg-white border border-gray-300 shadow-xl rounded-lg z-50 flex flex-col">
+          <Chatbox />
         </div>
       )}
     </div>
